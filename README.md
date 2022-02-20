@@ -11,10 +11,10 @@ in some Virtual Machine hosts I use make keyboard windows-like again
 
 ## RShift + Backspace = Delete (word with fn)
 
-RShift + Enter = Insert
+## RShift + Enter = Insert
 
-RAlt + F7-F12 = media
+## RAlt + F7-F12 = media
 for people with long fingers
 
-NUMPAD SIMUL: RAlt + k,./l;'op[ = keypad_0-9 [9]>[/] [0]>[*] ']'>[.]
+## NUMPAD SIMUL: RAlt + k,./l;'op[ = keypad_0-9 [9]>[/] [0]>[*] ']'>[.]
 simulation of numpad
