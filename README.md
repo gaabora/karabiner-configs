@@ -9,7 +9,7 @@ makes mac keyboard shortcuts in most programs work like on windows with normal k
 ## RDP, Virtual Machines (alt > win, cmd > alt, fn <> ctrl for apple keyboards)
 in some Virtual Machine hosts I use make keyboard windows-like again
 
-## RShift + Backspace = Delete (word with fn/ctrl)
+## RShift + Backspace = Delete (word with fn) for apple keyboards
 
 ## RShift + Enter = Insert
 
