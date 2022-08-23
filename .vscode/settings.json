@@ -1,0 +1,9 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#24320C",
+    "titleBar.activeBackground": "#334611",
+    "titleBar.activeForeground": "#F7FBF0"
+  },
+  "deno.enable": true,
+  "deno.unstable": false
+} 
