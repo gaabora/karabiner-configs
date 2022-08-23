@@ -125,14 +125,11 @@ complexMods.addRule({
         mList.push( genHotkeyTo({ key_code: 'right_command', modifiers: { optional: ['any'] } }, { key_code: 'right_alt'     }, [ usingMacKBs, overWinApps ]) )
         mList.push( genHotkeyTo({ key_code: 'right_alt',     modifiers: { optional: ['any'] } }, { key_code: 'right_control' }, [ usingMacKBs, overWinApps ]) )
 
-
         // [win-like] us kb (lCtrl>rCmd, extra)
-
-        // { 'type': 'basic', 'from': { 'key_code': 'right_arrow',            'modifiers': { 'mandatory': ['control'], 'optional': ['any'] } }, 'to': [ { 'key_code': 'end',               'modifiers': [ ] } ], 'conditions': [ { 'type': 'device_if', 'identifiers': [{ 'vendor_id': 1452 }] } ] },
-        // { 'type': 'basic', 'from': { 'key_code': 'left_arrow',             'modifiers': { 'mandatory': ['control'], 'optional': ['any'] } }, 'to': [ { 'key_code': 'home',              'modifiers': [ ] } ], 'conditions': [ { 'type': 'device_if', 'identifiers': [{ 'vendor_id': 1452 }] } ] },
-        // { 'type': 'basic', 'from': { 'key_code': 'up_arrow',               'modifiers': { 'mandatory': ['control'], 'optional': ['any'] } }, 'to': [ { 'key_code': 'page_up',           'modifiers': [ ] } ], 'conditions': [ { 'type': 'device_if', 'identifiers': [{ 'vendor_id': 1452 }] } ] },
-        // { 'type': 'basic', 'from': { 'key_code': 'down_arrow',             'modifiers': { 'mandatory': ['control'], 'optional': ['any'] } }, 'to': [ { 'key_code': 'page_down',         'modifiers': [ ] } ], 'conditions': [ { 'type': 'device_if', 'identifiers': [{ 'vendor_id': 1452 }] } ] },
-
+        mList.push( genHotkeyTo({ key_code: 'right_arrow', modifiers: { mandatory: ['left_control'], optional: ['any'] } }, { key_code: 'end'       }, [ usingMacKBs ]) )
+        mList.push( genHotkeyTo({ key_code: 'left_arrow',  modifiers: { mandatory: ['left_control'], optional: ['any'] } }, { key_code: 'home'      }, [ usingMacKBs ]) )
+        mList.push( genHotkeyTo({ key_code: 'up_arrow',    modifiers: { mandatory: ['left_control'], optional: ['any'] } }, { key_code: 'page_up'   }, [ usingMacKBs ]) )
+        mList.push( genHotkeyTo({ key_code: 'down_arrow',  modifiers: { mandatory: ['left_control'], optional: ['any'] } }, { key_code: 'page_down' }, [ usingMacKBs ]) )
 
         return  mList
     })()

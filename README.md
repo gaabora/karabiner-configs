@@ -1,3 +1,4 @@
+
 # karabiner-configs
 
 helped me stop frustrating after moving on mac after many years on windows.
@@ -18,3 +19,30 @@ for people with long fingers
 
 ## NUMPAD SIMUL: RAlt + k,./l;'op[ = keypad_0-9 [9]>[/] [0]>[*] ']'>[.]
 simulation of numpad
+
+currently rewriten using https://github.com/esamattis/deno_karabiner
+
+# Deno Karabiner
+
+
+Write Complex Modifications for
+[Karabiner-Elements](https://karabiner-elements.pqrs.org/) using TypeScript
+and [Deno](https://deno.land/).
+
+## Why?
+
+Karabiner Complex Modifications are in JSON which is not too text editor
+friendly format. By moving to TypeScript we gain following:
+
+-   Ability write comments
+-   Ability to use variables and any logic we want
+-   Autocomplete and build via VSCode etc.
+-   Type safety. The key codes etc. are typed
+-   Although this is not 100% complete. PRs welcome!
+
+Why Deno? It's the simplest way to run TypeScript code on macOS. No need to
+fiddle with npm and TypeScript configs.
+
+
+Build with VSCode tasks
+! IT WILL OVERWRITE your default config under `~/.config/karabiner/karabiner.json`.
