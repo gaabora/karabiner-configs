@@ -1,12 +1,5 @@
 import { Condition, KarabinerComplexModifications, Key, KeyPressFrom, KeyPressTo, Manipulator } from './lib/karabiner.ts';
 
-// import { writeHyperKeyImage } from 'https://deno.land/x/karabiner@v0.1.1/svg.ts';
-// import {
-//     HyperKey,
-//     KarabinerComplexModifications,
-// } from 'https://deno.land/x/karabiner@v0.1.1/karabiner.ts';
-
-
 const CHAR_keys = [
     '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
     'hyphen',
@@ -26,9 +19,7 @@ const CHAR_keys = [
 ] as Key[]
 const FN_keys = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9', 'f10','f11', 'f12' ] as Key[]
 
-
 const AppleKeyboard_identifiers = [{ 'vendor_id': 1452 }];
-
 const RDP_or_VM_bundle_identifiers = [
     '^com.microsoft.rdc$',
     '^com.microsoft.rdc.mac$',
