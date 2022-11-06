@@ -75,24 +75,24 @@ complexMods.addRule({
 
         // FOR F1-F12
         // fn TO LCtrl
-        mList.push( genHotkeyTo({ key_code: 'f1',  modifiers: { mandatory: ['left_control'] } }, { key_code: 'display_brightness_decrement' }, [ usingMacKBs ]) );
-        mList.push( genHotkeyTo({ key_code: 'f2',  modifiers: { mandatory: ['left_control'] } }, { key_code: 'display_brightness_increment' }, [ usingMacKBs ]) );
-        mList.push( genHotkeyTo({ key_code: 'f3',  modifiers: { mandatory: ['left_control'] } }, { key_code: 'mission_control' },              [ usingMacKBs ]) );
-        mList.push( genHotkeyTo({ key_code: 'f4',  modifiers: { mandatory: ['left_control'] } }, { key_code: 'launchpad' },                    [ usingMacKBs ]) );
-        mList.push( genHotkeyTo({ key_code: 'f5',  modifiers: { mandatory: ['left_control'] } }, { key_code: 'illumination_decrement' },       [ usingMacKBs ]) );
-        mList.push( genHotkeyTo({ key_code: 'f6',  modifiers: { mandatory: ['left_control'] } }, { key_code: 'illumination_increment' },       [ usingMacKBs ]) );
-        mList.push( genHotkeyTo({ key_code: 'f7',  modifiers: { mandatory: ['left_control'] } }, { key_code: 'rewind' },                       [ usingMacKBs ]) );
-        mList.push( genHotkeyTo({ key_code: 'f8',  modifiers: { mandatory: ['left_control'] } }, { key_code: 'play_or_pause' },                [ usingMacKBs ]) );
-        mList.push( genHotkeyTo({ key_code: 'f9',  modifiers: { mandatory: ['left_control'] } }, { key_code: 'fastforward' },                  [ usingMacKBs ]) );
-        mList.push( genHotkeyTo({ key_code: 'f10', modifiers: { mandatory: ['left_control'] } }, { key_code: 'mute' },                         [ usingMacKBs ]) );
-        mList.push( genHotkeyTo({ key_code: 'f11', modifiers: { mandatory: ['left_control'] } }, { key_code: 'volume_decrement' },             [ usingMacKBs ]) );
-        mList.push( genHotkeyTo({ key_code: 'f12', modifiers: { mandatory: ['left_control'] } }, { key_code: 'volume_increment' },             [ usingMacKBs ]) );
+        mList.push( genHotkeyTo({ key_code: 'f1',  modifiers: { mandatory: ['left_control'] } }, { key_code: 'display_brightness_decrement' }, [ usingMacKBs, overMacApps ]) );
+        mList.push( genHotkeyTo({ key_code: 'f2',  modifiers: { mandatory: ['left_control'] } }, { key_code: 'display_brightness_increment' }, [ usingMacKBs, overMacApps ]) );
+        mList.push( genHotkeyTo({ key_code: 'f3',  modifiers: { mandatory: ['left_control'] } }, { key_code: 'mission_control' },              [ usingMacKBs, overMacApps ]) );
+        mList.push( genHotkeyTo({ key_code: 'f4',  modifiers: { mandatory: ['left_control'] } }, { key_code: 'launchpad' },                    [ usingMacKBs, overMacApps ]) );
+        mList.push( genHotkeyTo({ key_code: 'f5',  modifiers: { mandatory: ['left_control'] } }, { key_code: 'illumination_decrement' },       [ usingMacKBs, overMacApps ]) );
+        mList.push( genHotkeyTo({ key_code: 'f6',  modifiers: { mandatory: ['left_control'] } }, { key_code: 'illumination_increment' },       [ usingMacKBs, overMacApps ]) );
+        mList.push( genHotkeyTo({ key_code: 'f7',  modifiers: { mandatory: ['left_control'] } }, { key_code: 'rewind' },                       [ usingMacKBs, overMacApps ]) );
+        mList.push( genHotkeyTo({ key_code: 'f8',  modifiers: { mandatory: ['left_control'] } }, { key_code: 'play_or_pause' },                [ usingMacKBs, overMacApps ]) );
+        mList.push( genHotkeyTo({ key_code: 'f9',  modifiers: { mandatory: ['left_control'] } }, { key_code: 'fastforward' },                  [ usingMacKBs, overMacApps ]) );
+        mList.push( genHotkeyTo({ key_code: 'f10', modifiers: { mandatory: ['left_control'] } }, { key_code: 'mute' },                         [ usingMacKBs, overMacApps ]) );
+        mList.push( genHotkeyTo({ key_code: 'f11', modifiers: { mandatory: ['left_control'] } }, { key_code: 'volume_decrement' },             [ usingMacKBs, overMacApps ]) );
+        mList.push( genHotkeyTo({ key_code: 'f12', modifiers: { mandatory: ['left_control'] } }, { key_code: 'volume_increment' },             [ usingMacKBs, overMacApps ]) );
         // fn TO RAlt 
         mList.push( genHotkeyTo({ key_code: 'f7',  modifiers: { mandatory: ['right_alt'] } }, { key_code: 'rewind' },           [ usingMacKBs ]) );
         mList.push( genHotkeyTo({ key_code: 'f8',  modifiers: { mandatory: ['right_alt'] } }, { key_code: 'play_or_pause' },    [ usingMacKBs ]) );
         mList.push( genHotkeyTo({ key_code: 'f9',  modifiers: { mandatory: ['right_alt'] } }, { key_code: 'fastforward' },      [ usingMacKBs ]) );
         mList.push( genHotkeyTo({ key_code: 'f10', modifiers: { mandatory: ['right_alt'] } }, { key_code: 'mute' },             [ usingMacKBs ]) );
-        mList.push( genHotkeyTo({ key_code: 'f11', modifiers: { mandatory: ['right_alt'] } }, { key_code: 'volume_decrement' }, [ usingMacKBs ]) );
+        mList.push( genHotkeyTo({ key_code: 'f11', modifiers: { mandatory: ['right_alt'] } }, { key_code: 'volume_decrement' }, [ usingMacKBs ]) ); 
         mList.push( genHotkeyTo({ key_code: 'f12', modifiers: { mandatory: ['right_alt'] } }, { key_code: 'volume_increment' }, [ usingMacKBs ]) );
         // LCtrl to fn
         FN_keys.forEach(keyCode => {
@@ -100,13 +100,13 @@ complexMods.addRule({
         })
 
         // win-like ctrl + ← → behaviour on fn + ← →
-        mList.push( genHotkeyTo({ key_code: 'left_arrow',  modifiers: { mandatory: ['fn'],           optional: ['left_shift'] } }, { key_code: 'left_arrow',  modifiers: [ 'left_alt' ] }, [ usingMacKBs, overMacApps ]) )
-        mList.push( genHotkeyTo({ key_code: 'right_arrow', modifiers: { mandatory: ['fn'],           optional: ['left_shift'] } }, { key_code: 'right_arrow', modifiers: [ 'left_alt' ] }, [ usingMacKBs, overMacApps ]) )
-        mList.push( genHotkeyTo({ key_code: 'left_arrow',  modifiers: { mandatory: ['left_control'], optional: ['left_shift'] } }, { key_code: 'left_arrow',  modifiers: [ 'left_alt' ] }, [ usingWinKBs, overMacApps ]) )
-        mList.push( genHotkeyTo({ key_code: 'right_arrow', modifiers: { mandatory: ['left_control'], optional: ['left_shift'] } }, { key_code: 'right_arrow', modifiers: [ 'left_alt' ] }, [ usingWinKBs, overMacApps ]) )
+        mList.push( genHotkeyTo({ key_code: 'left_arrow',  modifiers: { mandatory: ['fn'],           optional: ['any'] } }, { key_code: 'left_arrow',  modifiers: [ 'left_alt' ] }, [ usingMacKBs, overMacApps ]) )
+        mList.push( genHotkeyTo({ key_code: 'right_arrow', modifiers: { mandatory: ['fn'],           optional: ['any'] } }, { key_code: 'right_arrow', modifiers: [ 'left_alt' ] }, [ usingMacKBs, overMacApps ]) )
+        mList.push( genHotkeyTo({ key_code: 'left_arrow',  modifiers: { mandatory: ['left_control'], optional: ['any'] } }, { key_code: 'left_arrow',  modifiers: [ 'left_alt' ] }, [ usingWinKBs, overMacApps ]) )
+        mList.push( genHotkeyTo({ key_code: 'right_arrow', modifiers: { mandatory: ['left_control'], optional: ['any'] } }, { key_code: 'right_arrow', modifiers: [ 'left_alt' ] }, [ usingWinKBs, overMacApps ]) )
         
         // ctrl + tab TO fn + tab
-        mList.push( genHotkeyTo({ key_code: 'tab', modifiers: { mandatory: ['fn'], optional: ['left_shift'] } }, { key_code: 'tab', modifiers: [ 'left_control' ] }, [ usingMacKBs, overMacApps ]) )
+        mList.push( genHotkeyTo({ key_code: 'tab', modifiers: { mandatory: ['fn'], optional: ['any'] } }, { key_code: 'tab', modifiers: [ 'left_control' ] }, [ usingMacKBs, overMacApps ]) )
         
         // RDP, Virtual Machines (alt > win, cmd > alt) and fn <> ctrl for apple keyboards
         mList.push( genHotkeyTo({ key_code: 'fn',            modifiers: { optional: ['any'] } }, { key_code: 'left_control'  }, [ usingMacKBs, overWinApps ]) )
@@ -117,10 +117,10 @@ complexMods.addRule({
         mList.push( genHotkeyTo({ key_code: 'right_alt',     modifiers: { optional: ['any'] } }, { key_code: 'right_control' }, [ usingMacKBs, overWinApps ]) )
 
         // [win-like] us kb (lCtrl>rCmd, extra)
-        mList.push( genHotkeyTo({ key_code: 'right_arrow', modifiers: { mandatory: ['left_control'], optional: ['any'] } }, { key_code: 'end'       }, [ usingMacKBs ]) )
-        mList.push( genHotkeyTo({ key_code: 'left_arrow',  modifiers: { mandatory: ['left_control'], optional: ['any'] } }, { key_code: 'home'      }, [ usingMacKBs ]) )
-        mList.push( genHotkeyTo({ key_code: 'up_arrow',    modifiers: { mandatory: ['left_control'], optional: ['any'] } }, { key_code: 'page_up'   }, [ usingMacKBs ]) )
-        mList.push( genHotkeyTo({ key_code: 'down_arrow',  modifiers: { mandatory: ['left_control'], optional: ['any'] } }, { key_code: 'page_down' }, [ usingMacKBs ]) )
+        mList.push( genHotkeyTo({ key_code: 'right_arrow', modifiers: { mandatory: ['left_control'], optional: ['any'] } }, { key_code: 'end'       }, [ usingMacKBs, overMacApps ]) )
+        mList.push( genHotkeyTo({ key_code: 'left_arrow',  modifiers: { mandatory: ['left_control'], optional: ['any'] } }, { key_code: 'home'      }, [ usingMacKBs, overMacApps ]) )
+        mList.push( genHotkeyTo({ key_code: 'up_arrow',    modifiers: { mandatory: ['left_control'], optional: ['any'] } }, { key_code: 'page_up'   }, [ usingMacKBs, overMacApps ]) )
+        mList.push( genHotkeyTo({ key_code: 'down_arrow',  modifiers: { mandatory: ['left_control'], optional: ['any'] } }, { key_code: 'page_down' }, [ usingMacKBs, overMacApps ]) )
 
         return  mList
     })()
