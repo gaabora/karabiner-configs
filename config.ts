@@ -23,6 +23,7 @@ const AppleKeyboard_identifiers = [{ 'vendor_id': 1452 }];
 const RDP_or_VM_bundle_identifiers = [
     '^com.microsoft.rdc$',
     '^com.microsoft.rdc.mac$',
+    '^com.microsoft.rdc.macos$',
     '^com.microsoft.rdc.osx.beta$',
     '^com.vmware.fusion$',
     '^com.vmware.horizon$',
@@ -33,7 +34,8 @@ const RDP_or_VM_bundle_identifiers = [
     '^org.virtualbox.app.VirtualBoxVM$',
     '^com.vmware.proxyApp.',
     '^com.parallels.winapp.',
-    '^com.2X.Client.Mac$'
+    '^com.2X.Client.Mac$',
+    '^com.realvnc.vncviewer'
 ];
 
 const overMacApps = { type: 'frontmost_application_unless', bundle_identifiers: RDP_or_VM_bundle_identifiers } as Condition;
@@ -69,6 +71,7 @@ complexMods.addRule({
             // --- WIN KEYBOARD (ctrl [fn] win alt space alt [win] ctrl)
             // cmd TO ctrl (mac apps)
             mList.push( genHotkeyTo({ key_code: keyCode, modifiers: { mandatory: ['left_control'], optional: ['any'] } }, { key_code: keyCode, modifiers: [ 'left_command' ] }, [ usingWinKBs, overMacApps ]) );
+            mList.push( genHotkeyTo({ key_code: keyCode, modifiers: { mandatory: ['right_control'], optional: ['any'] } }, { key_code: keyCode, modifiers: [ 'right_command' ] }, [ usingWinKBs, overMacApps ]) );
             // usually nothing needed (win apps)
             // ...
         });
