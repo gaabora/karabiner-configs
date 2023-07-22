@@ -19,7 +19,7 @@ const CHAR_keys = [
 ] as Key[]
 const FN_keys = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9', 'f10','f11', 'f12' ] as Key[]
 
-const AppleKeyboard_identifiers = [{ 'vendor_id': 1452 }];
+const AppleKeyboard_identifiers = [{ 'vendor_id': 76 }, { 'vendor_id': 1452 }];
 const RDP_or_VM_bundle_identifiers = [
     '^com.microsoft.rdc$',
     '^com.microsoft.rdc.mac$',
