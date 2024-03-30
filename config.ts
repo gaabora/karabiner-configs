@@ -19,6 +19,11 @@ const CHAR_keys = [
 ] as Key[]
 const FN_keys = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9', 'f10','f11', 'f12' ] as Key[]
 
+const MostUsedApps_bundle_identifiers = [
+    '^com.microsoft.VSCode',
+    '^com.arobas-music.guitarpro8',
+    '^com.cockos.reaper',
+];
 const AppleKeyboard_identifiers = [{ 'vendor_id': 76 }, { 'vendor_id': 1452 }];
 const RDP_or_VM_bundle_identifiers = [
     '^com.microsoft.rdc$',
@@ -38,6 +43,7 @@ const RDP_or_VM_bundle_identifiers = [
     '^com.realvnc.vncviewer'
 ];
 
+const overMostUsedApps = { type: 'frontmost_application_unless', bundle_identifiers: MostUsedApps_bundle_identifiers } as Condition;
 const overMacApps = { type: 'frontmost_application_unless', bundle_identifiers: RDP_or_VM_bundle_identifiers } as Condition;
 const overWinApps = { type: 'frontmost_application_if', bundle_identifiers: RDP_or_VM_bundle_identifiers } as Condition;
 const usingMacKBs = { type: 'device_if', identifiers: AppleKeyboard_identifiers } as Condition;
@@ -134,9 +140,9 @@ complexMods.addRule({
     manipulators: (() => {
         const mList = [] as Manipulator[];
         
-        mList.push( genHotkeyTo({ key_code: 'delete_or_backspace', modifiers: { mandatory: ['fn', 'right_shift'], optional: [ 'any' ] } }, { key_code: 'delete_forward',      modifiers: [ 'left_option' ] }, [ usingMacKBs, overMacApps ]) )
-        mList.push( genHotkeyTo({ key_code: 'delete_or_backspace', modifiers: { mandatory: ['fn', 'right_shift'], optional: [ 'any' ] } }, { key_code: 'delete_forward',      modifiers: [ 'left_control' ] },  [ usingMacKBs, overWinApps ]) )
-        mList.push( genHotkeyTo({ key_code: 'delete_or_backspace', modifiers: { mandatory: ['fn'               ], optional: [ 'any' ] } }, { key_code: 'delete_or_backspace', modifiers: [ 'left_option' ] }, [ usingMacKBs ] ) )
+        mList.push( genHotkeyTo({ key_code: 'delete_or_backspace', modifiers: { mandatory: ['fn', 'right_shift'], optional: [ 'any' ] } }, { key_code: 'delete_forward',      modifiers: [ 'left_option' ] }, [ overMacApps ]) )
+        mList.push( genHotkeyTo({ key_code: 'delete_or_backspace', modifiers: { mandatory: ['fn', 'right_shift'], optional: [ 'any' ] } }, { key_code: 'delete_forward',      modifiers: [ 'left_control' ] },  [ overWinApps ]) )
+        mList.push( genHotkeyTo({ key_code: 'delete_or_backspace', modifiers: { mandatory: ['fn'               ], optional: [ 'any' ] } }, { key_code: 'delete_or_backspace', modifiers: [ 'left_option' ] }, [  ] ) )
         mList.push( genHotkeyTo({ key_code: 'delete_or_backspace', modifiers: { mandatory: ['right_shift'      ], optional: [ 'any' ] } }, { key_code: 'delete_forward',      modifiers: [ ] }, [ usingMacKBs ] ) )
         
         return mList
@@ -179,7 +185,60 @@ complexMods.addRule({
     })()
 })
 
+complexMods.addRule({
+    description: `NUMPAD SIMUL: RAlt + k,./l;'op[ = keypad_0-9 [9]>[/] [0]>[*] ']'>[.]`,
+    manipulators: (() => {
+        const mList = [] as Manipulator[];
+
+        mList.push( genHotkeyTo({ key_code: 'comma',         modifiers: { mandatory: ['right_alt'] } }, { key_code: 'keypad_1'        }, [ usingMacKBs ]) )
+        mList.push( genHotkeyTo({ key_code: 'period',        modifiers: { mandatory: ['right_alt'] } }, { key_code: 'keypad_2'        }, [ usingMacKBs ]) )
+        mList.push( genHotkeyTo({ key_code: 'slash',         modifiers: { mandatory: ['right_alt'] } }, { key_code: 'keypad_3'        }, [ usingMacKBs ]) )
+        mList.push( genHotkeyTo({ key_code: 'k',             modifiers: { mandatory: ['right_alt'] } }, { key_code: 'keypad_0'        }, [ usingMacKBs ]) )
+        mList.push( genHotkeyTo({ key_code: 'l',             modifiers: { mandatory: ['right_alt'] } }, { key_code: 'keypad_4'        }, [ usingMacKBs ]) )
+        mList.push( genHotkeyTo({ key_code: 'semicolon',     modifiers: { mandatory: ['right_alt'] } }, { key_code: 'keypad_5'        }, [ usingMacKBs ]) )
+        mList.push( genHotkeyTo({ key_code: 'quote',         modifiers: { mandatory: ['right_alt'] } }, { key_code: 'keypad_6'        }, [ usingMacKBs ]) )
+        mList.push( genHotkeyTo({ key_code: 'o',             modifiers: { mandatory: ['right_alt'] } }, { key_code: 'keypad_7'        }, [ usingMacKBs ]) )
+        mList.push( genHotkeyTo({ key_code: 'p',             modifiers: { mandatory: ['right_alt'] } }, { key_code: 'keypad_8'        }, [ usingMacKBs ]) )
+        mList.push( genHotkeyTo({ key_code: '9',             modifiers: { mandatory: ['right_alt'] } }, { key_code: 'keypad_slash'    }, [ usingMacKBs ]) )
+        mList.push( genHotkeyTo({ key_code: '0',             modifiers: { mandatory: ['right_alt'] } }, { key_code: 'keypad_asterisk' }, [ usingMacKBs ]) )
+        mList.push( genHotkeyTo({ key_code: 'open_bracket',  modifiers: { mandatory: ['right_alt'] } }, { key_code: 'keypad_9'        }, [ usingMacKBs ]) )
+        mList.push( genHotkeyTo({ key_code: 'close_bracket', modifiers: { mandatory: ['right_alt'] } }, { key_code: 'keypad_period'   }, [ usingMacKBs ]) )
+        mList.push( genHotkeyTo({ key_code: 'hyphen',        modifiers: { mandatory: ['right_alt'] } }, { key_code: 'keypad_hyphen'   }, [ usingMacKBs ]) )
+        mList.push( genHotkeyTo({ key_code: 'equal_sign',    modifiers: { mandatory: ['right_alt'] } }, { key_code: 'keypad_plus'     }, [ usingMacKBs ]) )
+        
+        return mList
+    })()
+})
+
+
+complexMods.addRule({
+    description: `cmd+mouse > alt+mouse, fn+mouse > cmd+mouse [over mac apps]`,
+    manipulators: (() => {
+        const mList = [] as Manipulator[];
+
+        mList.push( { type: 'basic', from: { key_code: 'fn' }, to_if_alone: [ { modifiers: [ 'left_command' ] } ], conditions: [ usingMacKBs, overMacApps ] } )
+      
+        return mList
+    })()
+})
+
+complexMods.addRule({
+    description: `Most used apps win like modifiers`,
+    manipulators: (() => {
+        const mList = [] as Manipulator[];
+
+        // mList.push( { type: 'basic', from: { key_code: 'fn' }, to: [ { modifiers: [ 'left_command' ] } ], conditions: [ usingMacKBs, overMostUsedApps ] } )
+        // mList.push( { type: 'basic', from: { key_code: 'left_command' }, to: [ { modifiers: [ 'left_option' ] } ], conditions: [ usingMacKBs, overMostUsedApps ] } )
+        // mList.push( { type: 'basic', from: { key_code: 'left_option' }, to: [ { modifiers: [ 'left_control' ] } ], conditions: [ usingMacKBs, overMostUsedApps ] } )
+        // mList.push( { type: 'basic', from: { key_code: 'left_control' }, to: [ { modifiers: [ 'fn' ] } ], conditions: [ usingMacKBs, overMostUsedApps ] } )
+      
+        return mList
+    })()
+})
+
+
 complexMods.writeToProfile('Default profile');
+
 
 
 
