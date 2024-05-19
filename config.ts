@@ -1,4 +1,4 @@
-import { Condition, KarabinerComplexModifications, Key, KeyPressFrom, KeyPressTo, Manipulator } from './lib/karabiner.ts';
+import { Condition, KarabinerComplexModifications, Key, KeyPressFrom, KeyPressTo, Manipulator } from './lib/karabiner';
 
 const CHAR_keys = [
     '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
@@ -43,7 +43,7 @@ const RDP_or_VM_bundle_identifiers = [
     '^com.realvnc.vncviewer'
 ];
 
-const overMostUsedApps = { type: 'frontmost_application_unless', bundle_identifiers: MostUsedApps_bundle_identifiers } as Condition;
+const overMostUsedApps = { type: 'frontmost_application_if', bundle_identifiers: MostUsedApps_bundle_identifiers } as Condition;
 const overMacApps = { type: 'frontmost_application_unless', bundle_identifiers: RDP_or_VM_bundle_identifiers } as Condition;
 const overWinApps = { type: 'frontmost_application_if', bundle_identifiers: RDP_or_VM_bundle_identifiers } as Condition;
 const usingMacKBs = { type: 'device_if', identifiers: AppleKeyboard_identifiers } as Condition;
@@ -211,30 +211,38 @@ complexMods.addRule({
 })
 
 
-complexMods.addRule({
-    description: `cmd+mouse > alt+mouse, fn+mouse > cmd+mouse [over mac apps]`,
-    manipulators: (() => {
-        const mList = [] as Manipulator[];
+// complexMods.addRule({
+//     description: `cmd+mouse > alt+mouse, fn+mouse > cmd+mouse [over mac apps]`,
+//     manipulators: (() => {
+//         const mList = [] as Manipulator[];
 
-        mList.push( { type: 'basic', from: { key_code: 'fn' }, to_if_alone: [ { modifiers: [ 'left_command' ] } ], conditions: [ usingMacKBs, overMacApps ] } )
+//         mList.push( { type: 'basic', from: { pointing_button: "button1", modifiers: { mandatory: [ 'left_shift', 'left_command' ] } }, to: [ { pointing_button: "button1", modifiers: [ 'left_alt', 'left_shift' ] } ], conditions: [  ] } )
+//         mList.push( { type: 'basic', from: { pointing_button: "button2", modifiers: { mandatory: [ 'left_shift', 'left_command' ] } }, to: [ { pointing_button: "button2", modifiers: [ 'left_alt', 'left_shift' ] } ], conditions: [  ] } )
+//         mList.push( { type: 'basic', from: { pointing_button: "button3", modifiers: { mandatory: [ 'left_shift', 'left_command' ] } }, to: [ { pointing_button: "button3", modifiers: [ 'left_alt', 'left_shift' ] } ], conditions: [  ] } )
+//         mList.push( { type: 'basic', from: { pointing_button: "button1", modifiers: { mandatory: [ 'left_command' ] } }, to: [ { pointing_button: "button1", modifiers: [ 'left_alt' ] } ], conditions: [  ] } )
+//         mList.push( { type: 'basic', from: { pointing_button: "button2", modifiers: { mandatory: [ 'left_command' ] } }, to: [ { pointing_button: "button2", modifiers: [ 'left_alt' ] } ], conditions: [  ] } )
+//         mList.push( { type: 'basic', from: { pointing_button: "button3", modifiers: { mandatory: [ 'left_command' ] } }, to: [ { pointing_button: "button3", modifiers: [ 'left_alt' ] } ], conditions: [  ] } )
+//         mList.push( { type: 'basic', from: { pointing_button: "button1", modifiers: { mandatory: [ 'fn' ] } }, to: [ { pointing_button: "button1", modifiers: [ 'left_command' ] } ], conditions: [  ] } )
+//         mList.push( { type: 'basic', from: { pointing_button: "button2", modifiers: { mandatory: [ 'fn' ] } }, to: [ { pointing_button: "button2", modifiers: [ 'left_command' ] } ], conditions: [  ] } )
+//         mList.push( { type: 'basic', from: { pointing_button: "button3", modifiers: { mandatory: [ 'fn' ] } }, to: [ { pointing_button: "button3", modifiers: [ 'left_command' ] } ], conditions: [  ] } )
       
-        return mList
-    })()
-})
+//         return mList
+//     })()
+// })
 
-complexMods.addRule({
-    description: `Most used apps win like modifiers`,
-    manipulators: (() => {
-        const mList = [] as Manipulator[];
+// complexMods.addRule({
+//     description: `Most used apps win like modifiers`,
+//     manipulators: (() => {
+//         const mList = [] as Manipulator[];
 
-        // mList.push( { type: 'basic', from: { key_code: 'fn' }, to: [ { modifiers: [ 'left_command' ] } ], conditions: [ usingMacKBs, overMostUsedApps ] } )
-        // mList.push( { type: 'basic', from: { key_code: 'left_command' }, to: [ { modifiers: [ 'left_option' ] } ], conditions: [ usingMacKBs, overMostUsedApps ] } )
-        // mList.push( { type: 'basic', from: { key_code: 'left_option' }, to: [ { modifiers: [ 'left_control' ] } ], conditions: [ usingMacKBs, overMostUsedApps ] } )
-        // mList.push( { type: 'basic', from: { key_code: 'left_control' }, to: [ { modifiers: [ 'fn' ] } ], conditions: [ usingMacKBs, overMostUsedApps ] } )
+//         mList.push( { type: 'basic', from: { key_code: 'fn' }, to: [ { key_code: 'left_command' } ], conditions: [ overMostUsedApps ] } )
+//         mList.push( { type: 'basic', from: { key_code: 'left_command' }, to: [ { key_code: 'left_option' } ], conditions: [ overMostUsedApps ] } )
+//         mList.push( { type: 'basic', from: { key_code: 'left_option' }, to: [ { key_code: 'left_control' } ], conditions: [ overMostUsedApps ] } )
+//         mList.push( { type: 'basic', from: { key_code: 'left_control' }, to: [ { key_code: 'fn' } ], conditions: [ overMostUsedApps ] } )
       
-        return mList
-    })()
-})
+//         return mList
+//     })()
+// })
 
 
 complexMods.writeToProfile('Default profile');

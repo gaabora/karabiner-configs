@@ -120,17 +120,39 @@ export type Key =
     | "keypad_hyphen"
     | "keypad_plus"
 
+export type PointingButton =
+    | "button1"
+    | "button2"
+    | "button3"
+    | "button4"
+    | "button5"
 
-export interface KeyPressFrom {
-    key_code: Key;
+export type MediaKeyCode = "" // TODO
+
+export type KeyPressFrom = KeyPressFromKeyCode | KeyPressMediaKeyCode | KeyPressFromPointingButton
+
+interface KeyPressFromAbstract {
     modifiers?: {
         mandatory?: Key[];
         optional?: (Key | "any")[];
     };
 }
 
+interface KeyPressFromKeyCode extends KeyPressFromAbstract {
+    key_code: Key;
+}
+
+interface KeyPressMediaKeyCode extends KeyPressFromAbstract {
+    consumer_key_code: MediaKeyCode;
+}
+
+interface KeyPressFromPointingButton extends KeyPressFromAbstract {
+    pointing_button: PointingButton;
+}
+
 export interface KeyPressTo {
     key_code?: Key;
+    pointing_button?: PointingButton;
     shell_command?: string;
     modifiers?: Key[];
     lazy?: boolean;
@@ -234,8 +256,8 @@ export interface KarabinerConfig {
 
 export class KarabinerComplexModifications {
     rules = [] as Rule[];
-    title = "Deno Karabiner";
-    id = "deno";
+    title = "Bun Karabiner";
+    id = "bun";
 
     constructor(options?: { title?: string; id?: string }) {
         if (options?.title) {
@@ -285,13 +307,16 @@ export class KarabinerComplexModifications {
 
     async writeToProfile(profileName: string, configPath?: string) {
         if (!configPath) {
-            const homeDir = Deno.env.get("HOME");
+            const homeDir = Bun.env.HOME;
             configPath = homeDir + "/.config/karabiner/karabiner.json";
         }
-
-        const content = await Deno.readTextFile(configPath);
-
-        const config: KarabinerConfig | undefined = JSON.parse(content);
+        let config: KarabinerConfig | undefined;
+        
+        try {
+            const file = Bun.file(configPath);
+            config = await file.json();
+        } catch (error) {
+        }
 
         const profile = config?.profiles?.find((profile) => {
             return profile.name === profileName;
@@ -316,9 +341,9 @@ export class KarabinerComplexModifications {
 
         profile.complex_modifications.rules = this.getRules();
 
-        await Deno.writeTextFile(
+        await Bun.write(
             configPath,
-            JSON.stringify(config, null, "  "),
+            JSON.stringify(config, null, "    "),
         );
     }
 }

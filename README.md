@@ -20,14 +20,15 @@ for people with long fingers
 ## NUMPAD SIMUL: RAlt + k,./l;'op[ = keypad_0-9 [9]>[/] [0]>[*] ']'>[.]
 simulation of numpad
 
-currently rewriten using https://github.com/esamattis/deno_karabiner
 
-# Deno Karabiner
+based on https://github.com/esamattis/deno_karabiner
+
+# Bun Karabiner
 
 
 Write Complex Modifications for
 [Karabiner-Elements](https://karabiner-elements.pqrs.org/) using TypeScript
-and [Deno](https://deno.land/).
+and [Bun](https://bun.sh/).
 
 ## Why?
 
@@ -40,9 +41,9 @@ friendly format. By moving to TypeScript we gain following:
 -   Type safety. The key codes etc. are typed
 -   Although this is not 100% complete. PRs welcome!
 
-Why Deno? It's the simplest way to run TypeScript code on macOS. No need to
+Why Bun? It's the simplest way to run TypeScript code on macOS. No need to
 fiddle with npm and TypeScript configs.
 
 
-Build with VSCode tasks
+Build with VSCode tasks (cmd+shift+B)
 ! IT WILL OVERWRITE your default config under `~/.config/karabiner/karabiner.json`.
